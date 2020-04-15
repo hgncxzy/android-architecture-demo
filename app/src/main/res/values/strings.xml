@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AndroidArchitecture</string>
+    <string name="start">开始</string>
+    <string name="hint">请输入账号</string>
+    <string name="login">登录</string>
+    <string name="fail">获取账号信息失败</string>
+</resources>
