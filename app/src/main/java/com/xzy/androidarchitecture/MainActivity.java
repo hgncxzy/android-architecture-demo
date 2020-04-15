@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.xzy.androidarchitecture.normal.NormalActivity;
+import com.xzy.androidarchitecture.mvc.MvcActivity;
 
 /**
  * 程序入口
@@ -34,6 +34,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(this, NormalActivity.class));
+        startActivity(new Intent(this, MvcActivity.class));
     }
 }
