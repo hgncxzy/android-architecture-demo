@@ -40,11 +40,11 @@ public class NormalActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @SuppressLint("SetTextI18n")
-    private void onSuccessPage(Account account) {
+    private void showSuccessPage(Account account) {
         mResultTv.setText("账号:" + account.getAccount() + "| 账号等级:" + account.getLevel());
     }
 
-    private void onFailedPage() {
+    private void showFailedPage() {
         mResultTv.setText("获取数据失败");
     }
 
@@ -66,12 +66,12 @@ public class NormalActivity extends AppCompatActivity implements View.OnClickLis
         getAccountData(mInputEt.getText().toString(), new Callback() {
             @Override
             public void onSuccess(Account account) {
-                onSuccessPage(account);
+                showSuccessPage(account);
             }
 
             @Override
             public void onFailed() {
-                onFailedPage();
+                showFailedPage();
             }
         });
     }
