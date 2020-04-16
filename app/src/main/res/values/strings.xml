@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">AndroidArchitecture</string>
-    <string name="start">开始</string>
+    <string name="normal_model">普通模式</string>
+    <string name="mvc_model">MVC模式</string>
+    <string name="mvp_model">MVP模式</string>
+    <string name="mvvm_model">MVVM模式</string>
     <string name="hint">请输入账号</string>
     <string name="login">登录</string>
     <string name="fail">获取账号信息失败</string>

@@ -1,4 +1,4 @@
-package com.xzy.androidarchitecture.normal;
+package com.xzy.androidarchitecture.mvp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,25 +11,27 @@ import android.widget.TextView;
 
 import com.xzy.androidarchitecture.R;
 import com.xzy.androidarchitecture.bean.Account;
-import com.xzy.androidarchitecture.callback.Callback;
-
-import java.util.Random;
 
 /**
- * 没有任何框架实现模拟登录获取账户信息
+ * 使用 MVP 模式模拟登陆获取用户信息
  *
  * @author xzy
  */
-public class NormalActivity extends AppCompatActivity implements View.OnClickListener {
+public class MvpActivity extends AppCompatActivity implements MvpIView, View.OnClickListener {
     private EditText mInputEt;
     private Button mLoginBtn;
     private TextView mResultTv;
+    /**
+     * 持有 presenter
+     */
+    private MvpPresenter mMvpPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_normal);
         initView();
+        mMvpPresenter = new MvpPresenter(this);
     }
 
     private void initView() {
@@ -39,44 +41,24 @@ public class NormalActivity extends AppCompatActivity implements View.OnClickLis
         mLoginBtn.setOnClickListener(this);
     }
 
-    private String getInput() {
+    @Override
+    public String getInput() {
         return mInputEt.getText().toString();
     }
 
     @SuppressLint("SetTextI18n")
-    private void showSuccessPage(Account account) {
+    @Override
+    public void showSuccessPage(Account account) {
         mResultTv.setText("账号:" + account.getAccount() + "| 账号等级:" + account.getLevel());
     }
 
-    private void showFailedPage() {
+    @Override
+    public void showFailedPage() {
         mResultTv.setText("获取数据失败");
-    }
-
-    private void getAccountData(String input, Callback callback) {
-        Random random = new Random();
-        boolean success = random.nextBoolean();
-        if (success) {
-            Account account = new Account();
-            account.setAccount(input);
-            account.setLevel(100);
-            callback.onSuccess(account);
-        } else {
-            callback.onFailed();
-        }
     }
 
     @Override
     public void onClick(View v) {
-        getAccountData(getInput(), new Callback() {
-            @Override
-            public void onSuccess(Account account) {
-                showSuccessPage(account);
-            }
-
-            @Override
-            public void onFailed() {
-                showFailedPage();
-            }
-        });
+        mMvpPresenter.getAccountData(getInput());
     }
 }
