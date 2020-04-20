@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.xzy.androidarchitecture.databinding.DataBindingActivity;
 import com.xzy.androidarchitecture.mvc.MvcActivity;
 import com.xzy.androidarchitecture.mvp.MvpActivity;
 import com.xzy.androidarchitecture.normal.NormalActivity;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mMvclBtn;
     private Button mMvpBtn;
     private Button mMvvmBtn;
+    private Button mDatabinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +39,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mMvclBtn = findViewById(R.id.btn_mvc);
         mMvpBtn = findViewById(R.id.btn_mvp);
         mMvvmBtn = findViewById(R.id.btn_mvvm);
+        mDatabinding = findViewById(R.id.btn_databinding);
 
         mNormalBtn.setOnClickListener(this);
         mMvclBtn.setOnClickListener(this);
         mMvpBtn.setOnClickListener(this);
         mMvvmBtn.setOnClickListener(this);
+        mDatabinding.setOnClickListener(this);
     }
 
     @Override
@@ -55,6 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_mvp:
                 startActivity(new Intent(this, MvpActivity.class));
+                break;
+            case R.id.btn_databinding:
+                startActivity(new Intent(this, DataBindingActivity.class));
                 break;
             default:
                 break;

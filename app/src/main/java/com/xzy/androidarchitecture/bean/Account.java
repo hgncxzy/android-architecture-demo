@@ -1,9 +1,14 @@
 package com.xzy.androidarchitecture.bean;
 
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+
+import com.xzy.androidarchitecture.BR;
+
 /**
- * Author: xzy
+ * @author : xzy
  */
-public class Account {
+public class Account extends BaseObservable {
     private String account;
     private int level;
 
@@ -15,11 +20,13 @@ public class Account {
         this.account = account;
     }
 
+    @Bindable
     public int getLevel() {
         return level;
     }
 
     public void setLevel(int level) {
         this.level = level;
+        notifyPropertyChanged(BR.level);
     }
 }

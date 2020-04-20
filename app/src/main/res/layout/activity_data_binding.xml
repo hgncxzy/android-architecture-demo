@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="account"
+            type="com.xzy.androidarchitecture.bean.Account" />
+        <variable
+            name="activity"
+            type="com.xzy.androidarchitecture.databinding.DataBindingActivity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".databinding.DataBindingActivity">
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="账号|等级"
+            android:text="@{account.account +'|'+account.level}"
+            android:textSize="20dp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_add_level"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:onClick="@{activity.onclick}"
+            tools:ignore="HardcodedText"
+            android:text="账号等级 + 1"
+            />
+    </LinearLayout>
+</layout>
