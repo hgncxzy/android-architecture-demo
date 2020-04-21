@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.xzy.androidarchitecture.databinding.DataBindingActivity;
 import com.xzy.androidarchitecture.mvc.MvcActivity;
 import com.xzy.androidarchitecture.mvp.MvpActivity;
+import com.xzy.androidarchitecture.mvvm.MvvmActivity;
 import com.xzy.androidarchitecture.normal.NormalActivity;
 
 /**
@@ -59,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_mvp:
                 startActivity(new Intent(this, MvpActivity.class));
+                break;
+            case R.id.btn_mvvm:
+                startActivity(new Intent(this, MvvmActivity.class));
                 break;
             case R.id.btn_databinding:
                 startActivity(new Intent(this, DataBindingActivity.class));
